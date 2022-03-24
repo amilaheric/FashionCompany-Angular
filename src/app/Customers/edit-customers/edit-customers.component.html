@@ -1,0 +1,115 @@
+<div style="width: 400px; margin: auto;" *ngIf="editCustomer != null">
+  <div class=" text-center">
+    <div class="submit-form">
+   
+        <h2 class="text-center mt-4">Edit customer</h2>
+      
+        <div class="form-group">
+        <input hidden [(ngModel)]="editCustomer.CustomerID" name="editCustomer.CustomerID">
+          <label for="editCustomer.firstName">First name: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="editCustomer.firstName"
+            required
+            [(ngModel)]="editCustomer.firstName"
+            name="editCustomer.firstName"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="editCustomer.lastName">Last name: </label>
+          <input
+            class="form-control"
+            id="editCustomer.lastName"
+            required
+            [(ngModel)]="editCustomer.lastName"
+            name="editCustomer.lastName"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="editCustomer.username">Username: </label>
+          <input
+            class="form-control"
+            id="editCustomer.username"
+            required
+            [(ngModel)]="editCustomer.username"
+            name="editCustomer.username"
+          />
+        </div> 
+ 
+        <div class="form-group">
+          <label for="editCustomer.email">Email: </label>
+          <input
+            class="form-control"
+            id="editCustomer.email"
+            required
+            [(ngModel)]="editCustomer.email"
+            name="editCustomer.email"
+          />
+        </div>
+      
+         <div class="form-group">
+            <label for="editCustomer.phoneNumber">Phone number: </label>
+            <input
+              class="form-control"
+              id="editCustomer.phoneNumber"
+              required
+              [(ngModel)]="editCustomer.phoneNumber"
+              name="editCustomer.phoneNumber"
+            />
+          </div>  
+
+          <div class="form-group">
+            <label class="form-label">Address:</label>
+            <select class="form-control"  [(ngModel)]="editCustomer.addressID"  name="editCustomer.addressID" change="selectAddress($event)">
+                <option *ngFor="let c of addressselect" [value]="c.value"> {{c.text}}</option>
+            </select> 
+          </div>  
+
+           <div class="form-group">
+             <label class="form-label">Gender:</label>
+            <select class="form-control" [(ngModel)]="editCustomer.genderID"   name="editCustomer.genderID"  (change)="selectGender($event)">
+                <option *ngFor="let g of genderselect" [value]="g.value">{{g.text}}</option>
+            </select> 
+          </div> 
+ 
+          <div class="form-group">
+            <label for="editCustomer.birthDate">Birth date: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="editCustomer.birthDate"
+              required
+              datetime="yyyy-MM-dd"
+              [(ngModel)]="editCustomer.birthDate"
+              name="editCustomer.birthDate"
+            />
+          </div>  
+
+        <button (click)="saveCustomer()" class="btn btn-primary">Submit</button>
+      </div>
+    </div>  
+  </div>
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

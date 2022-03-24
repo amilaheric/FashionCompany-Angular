@@ -1,0 +1,123 @@
+<div style="width: 400px; margin: auto;">
+  <div class=" text-center">
+    <div class="submit-form">
+      
+        <h2 class="text-center mt-4">Add new customer</h2>
+      
+        <div class="form-group">
+          <label for="addCustomer.firstName">First name: </label>
+          <input
+            type="text"
+            class="form-control"
+            id="addCustomer.firstName"
+            required
+            [(ngModel)]="addCustomer.firstName"
+            name="addCustomer.firstName"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="addCustomer.lastName">Last name: </label>
+          <input
+            class="form-control"
+            id="addCustomer.lastName"
+            required
+            [(ngModel)]="addCustomer.lastName"
+            name="addCustomer.lastName"
+          />
+        </div>
+    
+        <div class="form-group">
+          <label for="addCustomer.username">Username: </label>
+          <input
+            class="form-control"
+            id="addCustomer.username"
+            required
+            [(ngModel)]="addCustomer.username"
+            name="addCustomer.username"
+          />
+        </div> 
+ 
+        <div class="form-group">
+          <label for="addCustomer.email">Email: </label>
+          <input
+            class="form-control"
+            id="addCustomer.email"
+            required
+            [(ngModel)]="addCustomer.email"
+            name="addCustomer.email"
+          />
+        </div>
+
+         <div class="form-group">
+            <label for="addCustomer.phoneNumber">Phone number: </label>
+            <input
+              class="form-control"
+              id="addCustomer.phoneNumber"
+              required
+              [(ngModel)]="addCustomer.phoneNumber"
+              name="addCustomer.phoneNumber"
+            />
+          </div>  
+
+          <div class="form-group">
+            <label class="form-label">Address:</label>
+            <select class="form-control"  [(ngModel)]="addCustomer.addressID"  name="addCustomer.addressID" change="selectAddress($event)">
+                <option *ngFor="let c of SelectListAddr" [value]="c.value">{{c.text}}</option>
+            </select> 
+          </div> 
+
+
+          <div class="form-group">
+            <label class="form-label">Gender:</label>
+            <select class="form-control" [(ngModel)]="addCustomer.genderID"   name="addCustomer.genderID"  (change)="selectGender($event)">
+                <option *ngFor="let g of SelectListGe" [value]="g.value">{{g.text}}</option>
+            </select> 
+          </div> 
+
+          <div class="form-group">
+            <label for="addCustomer.birthDate">Birth date: </label>
+            <input
+              type="text"
+              class="form-control"
+              id="addCustomer.birthDate"
+              required
+              [(ngModel)]="addCustomer.birthDate"
+              name="addCustomer.birthDate"
+            />
+          </div>  
+
+        <button (click)="saveCustomer()" class="btn btn-primary">Submit</button>
+      </div>
+     </div>  
+     <a class="btn btn-outline-info" [routerLink]="['/']" routerLinkActive="router-link-active" >Back</a>
+</div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

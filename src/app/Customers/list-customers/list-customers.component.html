@@ -1,0 +1,56 @@
+<div id="content" >
+<h1>Customer list</h1>
+<table class="table table-bordered">
+<thead class="">
+    <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Address</th>
+        <th>Phone number</th>
+        <th>Birth date</th> 
+        <th>Action</th>
+    </tr>  
+</thead>
+<tbody>
+<tr *ngFor="let item of apiResult">
+    <td>{{item.customerID}}</td>
+    <td>{{item.firstName}}</td>
+    <td>{{item.lastName}}</td>
+    <td>{{item.address}}</td>
+    <td>{{item.phoneNumber}}</td>
+    <td>{{item.birthDate | date:'mediumDate'}}</td>
+ <td>  
+     <a class="btn btn-outline-warning" (click)="edit(item)"  (click)="triggerModal(modal)">Edit</a> 
+     <a class="btn btn-outline-primary" (click)="details(item)"  (click)="triggerModal(modalData)" >Details</a>
+     <a class="btn btn-outline-danger" (click)="delete(item)">Delete</a> 
+ </td>
+</tr>   
+</tbody>
+</table>
+<a class="btn btn-outline-primary" [routerLink]="['/add']" routerLinkActive="router-link-active" >Add new customer</a> 
+
+<ng-template #modalData let-modal>
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+<div class="modal-body">
+<app-details-customers [customer]="CustomerDetail"></app-details-customers>
+ </div>
+</ng-template>
+
+<ng-template #modal let-modal>
+    <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+    <div class="modal-body">
+    <app-edit-customers [editCustomer]="CustomerEdit"></app-edit-customers>
+    </div>
+</ng-template>
+
+<router-outlet></router-outlet>
+</div> 
